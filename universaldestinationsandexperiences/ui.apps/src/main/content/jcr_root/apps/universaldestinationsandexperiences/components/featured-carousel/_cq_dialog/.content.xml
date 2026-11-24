@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Featured Carousel"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <!-- Tab 1: Slides -->
+                    <slidesTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Slides"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <slides
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldLabel="Carousel Slides"
+                                                fieldDescription="Add feature slides with image, headline, and call-to-action button">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    name="./slides">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <image
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                            fieldLabel="Slide Image"
+                                                            fieldDescription="Select image from DAM"
+                                                            name="./image"
+                                                            rootPath="/content/dam"/>
+                                                        <imageAlt
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Image Alt Text"
+                                                            fieldDescription="Alternative text for accessibility"
+                                                            name="./imageAlt"
+                                                            emptyText="Universal Horror Unleashed Chicago"/>
+                                                        <title
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                            fieldLabel="Headline / Title"
+                                                            fieldDescription="Main headline text displayed on the right"
+                                                            name="./title"
+                                                            required="{Boolean}true"
+                                                            emptyText="Universal Destinations &amp; Experiences Expands..."/>
+                                                        <ctaText
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="CTA Button Label"
+                                                            fieldDescription="Label for the pill button (default: Read More)"
+                                                            name="./ctaText"
+                                                            emptyText="Read More"/>
+                                                        <ctaLink
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                            fieldLabel="CTA Button Link"
+                                                            fieldDescription="Destination URL or content path"
+                                                            name="./ctaLink"
+                                                            rootPath="/content"/>
+                                                        <openInNewTab
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                            text="Open link in new tab"
+                                                            name="./openInNewTab"
+                                                            value="true"
+                                                            uncheckedValue="false"/>
+                                                    </items>
+                                                </field>
+                                            </slides>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </slidesTab>
+
+                    <!-- Tab 2: Carousel Settings -->
+                    <settingsTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Carousel Settings"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <autoplay
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                text="Enable Autoplay"
+                                                name="./autoplay"
+                                                value="true"
+                                                uncheckedValue="false"
+                                                checked="{Boolean}true"/>
+                                            <delay
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Autoplay Interval (ms)"
+                                                fieldDescription="Delay between slide transitions in milliseconds (default: 5000)"
+                                                name="./delay"
+                                                min="1000"
+                                                max="30000"
+                                                step="500"
+                                                defaultValue="5000"/>
+                                            <backgroundColor
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Background Color"
+                                                fieldDescription="Hex color code (e.g. #152e75 for Navy)"
+                                                name="./backgroundColor"
+                                                emptyText="#152e75"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </settingsTab>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

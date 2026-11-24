@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[]"
+        cq:template="/conf/universaldestinationsandexperiences/settings/wcm/templates/xf-web-variation"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Footer"
+        sling:resourceType="universaldestinationsandexperiences/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="universaldestinationsandexperiences/components/container"
+            layout="responsiveGrid">
+            <footer
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="universaldestinationsandexperiences/components/footer"
+                copyrightText="©2026 Universal Studios. All rights reserved."
+                showBackToTop="{Boolean}true">
+                <socialLinks jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        platform="youtube"
+                        label="Find us on Youtube"
+                        linkUrl="https://www.youtube.com/@UniversalDestinations"
+                        openInNewTab="{Boolean}true"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        platform="linkedin"
+                        label="Find us on LinkedIn"
+                        linkUrl="https://www.linkedin.com/company/universal-destinations-experiences/"
+                        openInNewTab="{Boolean}true"/>
+                </socialLinks>
+                <legalLinks jcr:primaryType="nt:unstructured">
+                    <item0 jcr:primaryType="nt:unstructured" linkText="Privacy Center" linkUrl="/content/universaldestinationsandexperiences/us/en/privacy-center"/>
+                    <item1 jcr:primaryType="nt:unstructured" linkText="Ad Choices" linkUrl="/content/universaldestinationsandexperiences/us/en/ad-choices"/>
+                    <item2 jcr:primaryType="nt:unstructured" linkText="Privacy Policy" linkUrl="/content/universaldestinationsandexperiences/us/en/privacy-policy"/>
+                    <item3 jcr:primaryType="nt:unstructured" linkText="Cookie Notice" linkUrl="/content/universaldestinationsandexperiences/us/en/cookie-notice"/>
+                    <item4 jcr:primaryType="nt:unstructured" linkText="CA Notice" linkUrl="/content/universaldestinationsandexperiences/us/en/ca-notice"/>
+                    <item5 jcr:primaryType="nt:unstructured" linkText="Terms of Service" linkUrl="/content/universaldestinationsandexperiences/us/en/terms-of-service"/>
+                    <item6 jcr:primaryType="nt:unstructured" linkText="Copyright &amp; Trademark" linkUrl="/content/universaldestinationsandexperiences/us/en/copyright-trademark"/>
+                    <item7 jcr:primaryType="nt:unstructured" linkText="Plan Your Vacation" linkUrl="/content/universaldestinationsandexperiences/us/en/plan-vacation"/>
+                </legalLinks>
+            </footer>
+        </root>
+    </jcr:content>
+</jcr:root>

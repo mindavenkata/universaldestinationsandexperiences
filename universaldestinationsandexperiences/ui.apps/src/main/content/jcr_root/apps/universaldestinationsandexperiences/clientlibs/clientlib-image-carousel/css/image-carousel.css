@@ -1,0 +1,181 @@
+/*
+ * Universal Destinations & Experiences - Image Carousel Styles
+ */
+.cmp-image-carousel {
+    position: relative;
+    width: 100%;
+    padding: 32px 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.cmp-image-carousel *,
+.cmp-image-carousel *::before,
+.cmp-image-carousel *::after {
+    box-sizing: border-box;
+}
+
+.cmp-image-carousel__outer-container {
+    margin: 0 auto;
+    padding: 0 48px;
+    position: relative;
+    width: 100%;
+}
+
+.cmp-image-carousel__stage {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cmp-image-carousel__viewport {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.cmp-image-carousel__track {
+    display: flex;
+    width: 100%;
+}
+
+.cmp-image-carousel__slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.cmp-image-carousel__slide--active {
+    display: block;
+    opacity: 1;
+}
+
+.cmp-image-carousel__image-frame {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    aspect-ratio: 4 / 3;
+    background-color: #f5f5f5;
+    width: 100%;
+}
+
+.cmp-image-carousel__image-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.cmp-image-carousel__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cmp-image-carousel__caption {
+    font-size: 14px;
+    color: #666666;
+    margin: 10px 0 0 0;
+    text-align: left;
+}
+
+/* Navigation Chevrons */
+.cmp-image-carousel__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0.8;
+    padding: 0;
+}
+
+.cmp-image-carousel__nav--prev {
+    left: -44px;
+}
+
+.cmp-image-carousel__nav--next {
+    right: -44px;
+}
+
+.cmp-image-carousel__nav:hover,
+.cmp-image-carousel__nav:focus {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.15);
+    outline: none;
+}
+
+.cmp-image-carousel__nav svg {
+    width: 26px;
+    height: 26px;
+    stroke: currentColor;
+}
+
+/* Bottom-Left Pagination Dots as seen in mockup */
+.cmp-image-carousel__pagination {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding-left: 4px;
+}
+
+.cmp-image-carousel__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #bbbbbb;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cmp-image-carousel__dot:hover {
+    background-color: #666666;
+}
+
+.cmp-image-carousel__dot--active {
+    background-color: #222222;
+    transform: scale(1.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cmp-image-carousel__outer-container {
+        padding: 0 36px;
+    }
+
+    .cmp-image-carousel__nav--prev {
+        left: -34px;
+    }
+
+    .cmp-image-carousel__nav--next {
+        right: -34px;
+    }
+
+    .cmp-image-carousel__nav svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .cmp-image-carousel__image-frame {
+        border-radius: 16px;
+    }
+}

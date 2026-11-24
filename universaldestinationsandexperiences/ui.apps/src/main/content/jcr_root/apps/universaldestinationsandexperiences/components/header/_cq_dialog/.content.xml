@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Universal Header"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <!-- Tab 1: Brand & Logo -->
+                    <brandTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Brand &amp; Logo"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <logoImage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldLabel="Logo Image (Optional)"
+                                                fieldDescription="Select custom logo from DAM, or leave empty to use default Universal logo"
+                                                name="./logoImage"
+                                                rootPath="/content/dam"/>
+                                            <brandTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Brand Title Line 1"
+                                                name="./brandTitle"
+                                                emptyText="Corporate"/>
+                                            <brandSubtitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Brand Title Line 2"
+                                                name="./brandSubtitle"
+                                                emptyText="Communications"/>
+                                            <homeLink
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldLabel="Home Page Link"
+                                                name="./homeLink"
+                                                rootPath="/content"
+                                                emptyText="/content/universaldestinationsandexperiences/us/en"/>
+                                            <backgroundColor
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Header Background Color"
+                                                name="./backgroundColor"
+                                                emptyText="#0066d6"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </brandTab>
+
+                    <!-- Tab 2: Navigation Items -->
+                    <navTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Navigation Menu"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <navItems
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldLabel="Header Navigation Items"
+                                                fieldDescription="Configure main menu items and dropdown submenus">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    name="./navItems">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <title
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Menu Item Title"
+                                                            name="./title"
+                                                            required="{Boolean}true"
+                                                            emptyText="ABOUT, FEATURES, IMPACT, etc."/>
+                                                        <link
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                            fieldLabel="Menu Item Link (Optional)"
+                                                            name="./link"
+                                                            rootPath="/content"/>
+                                                        <openInNewTab
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                            text="Open in new window"
+                                                            name="./openInNewTab"
+                                                            value="true"
+                                                            uncheckedValue="false"/>
+                                                        <dropdownItemsText
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                            fieldLabel="Dropdown Sub-Items (One per line)"
+                                                            fieldDescription="Enter submenu items formatted as: TITLE|/path/to/page (e.g. MISSION|/content/mission)"
+                                                            name="./dropdownItemsText"
+                                                            emptyText="MISSION|/content/...&#10;LEADERSHIP|/content/...&#10;HISTORY|/content/...&#10;SUPPLIERS &amp; BUSINESS PARTNERS|/content/..."/>
+                                                    </items>
+                                                </field>
+                                            </navItems>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </navTab>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

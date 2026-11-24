@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[]"
+        cq:template="/conf/universaldestinationsandexperiences/settings/wcm/templates/xf-web-variation"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Header"
+        sling:resourceType="universaldestinationsandexperiences/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="universaldestinationsandexperiences/components/container"
+            layout="simple">
+            <header
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="universaldestinationsandexperiences/components/header"
+                brandTitle="Corporate"
+                brandSubtitle="Communications"
+                homeLink="/content/universaldestinationsandexperiences/us/en"
+                backgroundColor="#0066d6">
+                <navItems jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        title="ABOUT"
+                        link="/content/universaldestinationsandexperiences/us/en/about"
+                        dropdownItemsText="MISSION|/content/universaldestinationsandexperiences/us/en/about/mission&#10;LEADERSHIP|/content/universaldestinationsandexperiences/us/en/about/leadership&#10;HISTORY|/content/universaldestinationsandexperiences/us/en/about/history&#10;SUPPLIERS &amp; BUSINESS PARTNERS|/content/universaldestinationsandexperiences/us/en/about/suppliers"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        title="FEATURES"
+                        link="/content/universaldestinationsandexperiences/us/en/features"/>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        title="IMPACT"
+                        link="/content/universaldestinationsandexperiences/us/en/impact"
+                        dropdownItemsText="COMMUNITY|/content/universaldestinationsandexperiences/us/en/impact/community&#10;SUSTAINABILITY|/content/universaldestinationsandexperiences/us/en/impact/sustainability"/>
+                    <item3
+                        jcr:primaryType="nt:unstructured"
+                        title="CAREERS"
+                        link="/content/universaldestinationsandexperiences/us/en/careers"
+                        dropdownItemsText="EXPLORE JOBS|/content/universaldestinationsandexperiences/us/en/careers/jobs&#10;LIFE AT UNIVERSAL|/content/universaldestinationsandexperiences/us/en/careers/life"/>
+                    <item4
+                        jcr:primaryType="nt:unstructured"
+                        title="NEWSROOM"
+                        link="/content/universaldestinationsandexperiences/us/en/newsroom"
+                        dropdownItemsText="PRESS RELEASES|/content/universaldestinationsandexperiences/us/en/newsroom/press-releases&#10;MEDIA ASSETS|/content/universaldestinationsandexperiences/us/en/newsroom/assets"/>
+                    <item5
+                        jcr:primaryType="nt:unstructured"
+                        title="UDX"
+                        link="/content/universaldestinationsandexperiences/us/en/udx"
+                        dropdownItemsText="UNIVERSAL ORLANDO RESORT|https://www.universalorlando.com/&#10;UNIVERSAL STUDIOS HOLLYWOOD|https://www.universalstudioshollywood.com/&#10;UNIVERSAL STUDIOS JAPAN|https://www.usj.co.jp/&#10;UNIVERSAL BEIJING RESORT|https://www.universalbeijingresort.com/&#10;UNIVERSAL STUDIOS SINGAPORE|https://www.rwsentosa.com/en/attractions/universal-studios-singapore&#10;UNIVERSAL KIDS RESORT|/content/universaldestinationsandexperiences/us/en/udx/kids-resort&#10;UNIVERSAL HORROR UNLEASHED|/content/universaldestinationsandexperiences/us/en/udx/horror-unleashed&#10;UNIVERSAL PRODUCTS &amp; EXPERIENCES|/content/universaldestinationsandexperiences/us/en/udx/products-experiences&#10;UNIVERSAL CREATIVE|/content/universaldestinationsandexperiences/us/en/udx/creative"/>
+                </navItems>
+            </header>
+        </root>
+    </jcr:content>
+</jcr:root>

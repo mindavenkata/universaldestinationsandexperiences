@@ -1,0 +1,10 @@
+<!--/*
+    Universal Destinations & Experiences - Custom Footer Libs
+*/-->
+<sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.js @ categories='universaldestinationsandexperiences.dependencies'}"/>
+    <sly data-sly-call="${clientlib.js @ categories='universaldestinationsandexperiences.base', async=true}"/>
+    <sly data-sly-call="${clientlib.js @ categories='universaldestinationsandexperiences.site', async=true}"/>
+    <sly data-sly-call="${clientlib.js @ categories='universaldestinationsandexperiences.components.header', async=true}"/>
+    <sly data-sly-call="${clientlib.js @ categories='universaldestinationsandexperiences.components.footer', async=true}"/>
+</sly>

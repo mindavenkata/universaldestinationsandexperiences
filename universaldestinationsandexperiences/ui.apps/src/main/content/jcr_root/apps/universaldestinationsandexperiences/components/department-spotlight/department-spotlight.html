@@ -1,0 +1,131 @@
+<!--/*
+    Universal Destinations & Experiences - Department Spotlight Component
+    Supports Image Left, Image Right, and Banner variations with multiple brand themes.
+*/-->
+<sly data-sly-use.model="com.universaldestinationsandexperiences.core.models.DepartmentSpotlightModel"
+     data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.css @ categories='universaldestinationsandexperiences.department-spotlight'}"/>
+
+<section class="cmp-department-spotlight ${model.modifierClasses}"
+         data-sly-test="${model.hasContent || wcmmode.edit}"
+         aria-labelledby="spotlight-title-${resource.path.hashCode}">
+    <div class="cmp-department-spotlight__container">
+        <div class="cmp-department-spotlight__grid">
+
+            <!-- Media Column (Image & Overlay Badge) -->
+            <div class="cmp-department-spotlight__media-col">
+                <div class="cmp-department-spotlight__media-wrapper">
+                    <img class="cmp-department-spotlight__image"
+                         src="${model.image}"
+                         alt="${model.imageAlt}"
+                         loading="lazy"
+                         data-sly-test="${model.image}" />
+
+                    <!-- Authoring Placeholder -->
+                    <div class="cmp-department-spotlight__placeholder-image"
+                         data-sly-test="${!model.image && wcmmode.edit}">
+                        <div class="cmp-department-spotlight__placeholder-inner">
+                            <span class="cmp-department-spotlight__placeholder-icon">📷</span>
+                            <span class="cmp-department-spotlight__placeholder-text">Configure Department Image in Dialog</span>
+                        </div>
+                    </div>
+
+                    <!-- Optional Overlay Badge -->
+                    <span class="cmp-department-spotlight__badge"
+                          data-sly-test="${model.badgeText}">
+                        ${model.badgeText}
+                    </span>
+                </div>
+            </div>
+
+            <!-- Content Column -->
+            <div class="cmp-department-spotlight__content-col">
+                <div class="cmp-department-spotlight__content-inner">
+
+                    <!-- Optional Eyebrow -->
+                    <span class="cmp-department-spotlight__eyebrow"
+                          data-sly-test="${model.eyebrow}">
+                        ${model.eyebrow}
+                    </span>
+
+                    <!-- Department Title -->
+                    <h2 class="cmp-department-spotlight__title"
+                        id="spotlight-title-${resource.path.hashCode}"
+                        data-sly-test="${model.title}">
+                        ${model.title}
+                    </h2>
+
+                    <!-- Overview / Description -->
+                    <div class="cmp-department-spotlight__description"
+                         data-sly-test="${model.description}">
+                        ${model.description @ context='html'}
+                    </div>
+
+                    <!-- Roles List (if configured) -->
+                    <div class="cmp-department-spotlight__roles-section"
+                         data-sly-test="${model.hasRoles}">
+                        <ul class="cmp-department-spotlight__roles-list">
+                            <li class="cmp-department-spotlight__role-item"
+                                data-sly-repeat.role="${model.roles}">
+                                <a class="cmp-department-spotlight__role-link"
+                                   href="${role.formattedRoleLink}"
+                                   target="${role.target}"
+                                   rel="${role.openInNewTab ? 'noopener noreferrer' : ''}"
+                                   data-sly-test="${role.hasRoleLink}">
+                                    <span class="cmp-department-spotlight__role-name">${role.roleTitle}</span>
+                                    <span class="cmp-department-spotlight__role-tag"
+                                          data-sly-test="${role.roleTag}">${role.roleTag}</span>
+                                    <span class="cmp-department-spotlight__role-arrow">→</span>
+                                </a>
+                                <div class="cmp-department-spotlight__role-static"
+                                     data-sly-test="${!role.hasRoleLink}">
+                                    <span class="cmp-department-spotlight__role-name">${role.roleTitle}</span>
+                                    <span class="cmp-department-spotlight__role-tag"
+                                          data-sly-test="${role.roleTag}">${role.roleTag}</span>
+                                </div>
+                                <p class="cmp-department-spotlight__role-description"
+                                   data-sly-test="${role.roleDescription}">
+                                    ${role.roleDescription}
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div class="cmp-department-spotlight__actions"
+                         data-sly-test="${model.hasPrimaryCta || model.hasSecondaryCta}">
+                        
+                        <!-- Primary CTA as clean Text Link (matches live screenshot) -->
+                        <a class="cmp-department-spotlight__cta-link"
+                           href="${model.primaryCtaLink}"
+                           target="${model.primaryCtaTarget}"
+                           rel="${model.primaryCtaOpenInNewTab ? 'noopener noreferrer' : ''}"
+                           data-sly-test="${model.hasPrimaryCta && model.ctaStyle == 'link'}">
+                            ${model.primaryCtaLabel}
+                        </a>
+
+                        <!-- Primary CTA as Button (if author selected button) -->
+                        <a class="cmp-department-spotlight__btn cmp-department-spotlight__btn--primary"
+                           href="${model.primaryCtaLink}"
+                           target="${model.primaryCtaTarget}"
+                           rel="${model.primaryCtaOpenInNewTab ? 'noopener noreferrer' : ''}"
+                           data-sly-test="${model.hasPrimaryCta && model.ctaStyle == 'button'}">
+                            ${model.primaryCtaLabel}
+                        </a>
+
+                        <!-- Secondary CTA -->
+                        <a class="cmp-department-spotlight__btn cmp-department-spotlight__btn--secondary"
+                           href="${model.secondaryCtaLink}"
+                           target="${model.secondaryCtaTarget}"
+                           rel="${model.secondaryCtaOpenInNewTab ? 'noopener noreferrer' : ''}"
+                           data-sly-test="${model.hasSecondaryCta}">
+                            ${model.secondaryCtaLabel}
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

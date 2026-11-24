@@ -1,0 +1,310 @@
+/*
+ * Universal Destinations & Experiences
+ * Featured Department Spotlight SCSS
+ */
+
+.cmp-department-spotlight {
+  position: relative;
+  width: 100%;
+  padding: 60px 0;
+  box-sizing: border-box;
+
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+
+  &__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  /* Variations: Layout */
+  &--image-left {
+    .cmp-department-spotlight__media-col { order: 1; }
+    .cmp-department-spotlight__content-col { order: 2; }
+  }
+
+  &--image-right {
+    .cmp-department-spotlight__media-col { order: 2; }
+    .cmp-department-spotlight__content-col { order: 1; }
+  }
+
+  &--banner {
+    .cmp-department-spotlight__grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .cmp-department-spotlight__media-col {
+      order: 1;
+      max-height: 440px;
+      overflow: hidden;
+    }
+    .cmp-department-spotlight__content-col {
+      order: 2;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
+  /* Variations: Themes */
+  &--theme-white {
+    background-color: #ffffff;
+    color: #334155;
+    .cmp-department-spotlight__title { color: #1e2530; }
+    .cmp-department-spotlight__description { color: #374151; }
+  }
+
+  &--theme-soft-blue {
+    background-color: #eaf2f9;
+    color: #334155;
+    .cmp-department-spotlight__title { color: #1e2530; }
+    .cmp-department-spotlight__description { color: #374151; }
+  }
+
+  &--theme-light-gray {
+    background-color: #f8fafc;
+    color: #334155;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    .cmp-department-spotlight__title { color: #1e2530; }
+  }
+
+  &--theme-navy {
+    background-color: #0f2252;
+    color: #cbd5e1;
+    .cmp-department-spotlight__title { color: #ffffff; }
+    .cmp-department-spotlight__description { color: #e2e8f0; }
+    .cmp-department-spotlight__cta-link {
+      color: #38bdf8;
+      &:hover { color: #7dd3fc; }
+    }
+  }
+
+  /* Media */
+  &__media-wrapper {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  &__placeholder-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 10;
+    background-color: #e2e8f0;
+    border: 2px dashed #94a3b8;
+    border-radius: 6px;
+    color: #475569;
+  }
+
+  &__placeholder-inner {
+    text-align: center;
+    padding: 24px;
+  }
+
+  &__placeholder-icon {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  &__placeholder-text {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  &__badge {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: rgba(15, 34, 82, 0.88);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  /* Content */
+  &__content-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #0066d6;
+    margin-bottom: 8px;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.3px;
+  }
+
+  &__description {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    p {
+      margin: 0 0 10px 0;
+      &:last-child { margin-bottom: 0; }
+    }
+  }
+
+  /* Roles */
+  &__roles-section {
+    margin-bottom: 20px;
+  }
+
+  &__roles-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__role-item {
+    border-radius: 6px;
+    padding: 10px 14px;
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  &__role-link, &__role-static {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+
+  &__role-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: inherit;
+  }
+
+  &__role-tag {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    background: #e0f2fe;
+    color: #0369a1;
+  }
+
+  &__role-arrow {
+    margin-left: auto;
+    font-size: 14px;
+    color: #0066d6;
+  }
+
+  &__role-description {
+    font-size: 12px;
+    margin: 4px 0 0 0;
+    opacity: 0.8;
+  }
+
+  /* Call to action */
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin-top: 4px;
+  }
+
+  &__cta-link {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0066d6;
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+
+    &:hover {
+      text-decoration: underline;
+      color: #004bb5;
+    }
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &--primary {
+      background-color: #0066d6;
+      color: #ffffff;
+      border: 2px solid #0066d6;
+      &:hover { background-color: #004bb5; border-color: #004bb5; }
+    }
+
+    &--secondary {
+      background-color: transparent;
+      color: #0066d6;
+      border: 2px solid #0066d6;
+      &:hover { background-color: #f0f7ff; }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .cmp-department-spotlight {
+    padding: 40px 0;
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    &--image-left .cmp-department-spotlight__media-col,
+    &--image-right .cmp-department-spotlight__media-col {
+      order: 1;
+    }
+
+    &--image-left .cmp-department-spotlight__content-col,
+    &--image-right .cmp-department-spotlight__content-col {
+      order: 2;
+    }
+
+    &__title {
+      font-size: 24px;
+    }
+  }
+}

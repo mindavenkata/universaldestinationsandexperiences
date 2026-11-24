@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        pageTitle="Universal Destinations &amp; Experiences"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="en"
+        cq:contextHubPath="/etc/cloudsettings/default/contexthub"
+        cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
+        cq:template="/conf/universaldestinationsandexperiences/settings/wcm/templates/page-content"
+        sling:resourceType="universaldestinationsandexperiences/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="universaldestinationsandexperiences/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="universaldestinationsandexperiences/components/container"
+                layout="responsiveGrid">
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="universaldestinationsandexperiences/components/container"
+                    layout="responsiveGrid">
+
+                    <!-- 1. Featured Top Carousel -->
+                    <featured_carousel
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="universaldestinationsandexperiences/components/featured-carousel"
+                        autoplay="{Boolean}true"
+                        delay="{Long}6000">
+                        <slides jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                headline="Universal Destinations &amp; Experiences Expands Universal Horror Unleashed Concept with Second Location Planned for Chicago"
+                                image="/content/dam/universaldestinationsandexperiences/news/horror-unleashed.jpg"
+                                imageAlt="Universal Horror Unleashed Chicago Concept Rendering"
+                                ctaLabel="Read More"
+                                ctaLink="/content/universaldestinationsandexperiences/us/en/newsroom/horror-unleashed"
+                                openInNewTab="{Boolean}false"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                headline="Epic Universe Becomes a Classroom for Future Innovators"
+                                image="/content/dam/universaldestinationsandexperiences/news/future-innovators.jpg"
+                                imageAlt="Inspiring Future Innovators Summit Students"
+                                ctaLabel="Read More"
+                                ctaLink="/content/universaldestinationsandexperiences/us/en/newsroom/future-innovators"
+                                openInNewTab="{Boolean}false"/>
+                        </slides>
+                    </featured_carousel>
+
+                    <!-- 2. News Card Grid -->
+                    <news_grid
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="universaldestinationsandexperiences/components/news-card-grid"
+                        title="See What's Happening In Our Universe">
+                        <cards jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                cardTitle="Universal Unwraps All-New Holiday Merchandise Collections"
+                                description="Guests Can Celebrate the Season with Festive Merchandise Inspired by Fan-Favorite Characters and Experiences Across Universal Destinations..."
+                                image="/content/dam/universaldestinationsandexperiences/news/holiday-merchandise.jpg"
+                                imageAlt="Guests with Holiday Merchandise Bags"
+                                pagePath="/content/universaldestinationsandexperiences/us/en/newsroom/holiday-collections"
+                                linkText="Read More..."
+                                openInNewTab="{Boolean}false"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                cardTitle="Universal Destinations &amp; Experiences Names Luc Bondar as Chief Brand &amp; Commercial Officer"
+                                description="Appointment follows planned retirement of Alice Norsworthy, a seasoned brand and marketing strategist with more than four decades in..."
+                                image="/content/dam/universaldestinationsandexperiences/news/udx-globe-logo.jpg"
+                                imageAlt="Universal Destinations &amp; Experiences Logo"
+                                pagePath="/content/universaldestinationsandexperiences/us/en/newsroom/luc-bondar-announcement"
+                                linkText="Read More..."
+                                openInNewTab="{Boolean}false"/>
+                            <item2
+                                jcr:primaryType="nt:unstructured"
+                                cardTitle="Epic Universe Becomes a Classroom for Future Innovators"
+                                description="College Students from Across the Country Come Together for Inspiring Future Innovators Summit College students from across the country..."
+                                image="/content/dam/universaldestinationsandexperiences/news/innovators-group.jpg"
+                                imageAlt="Students group at Inspiring Future Innovators Summit"
+                                pagePath="/content/universaldestinationsandexperiences/us/en/newsroom/future-innovators"
+                                linkText="Read More..."
+                                openInNewTab="{Boolean}false"/>
+                        </cards>
+                    </news_grid>
+
+                    <!-- 3. Department Spotlight (Technical Services) -->
+                    <spotlight_technical
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="universaldestinationsandexperiences/components/department-spotlight"
+                        layout="image-left"
+                        theme="theme-white"
+                        ctaStyle="link"
+                        title="Technical Services"
+                        description="Use your technical and mechanical skills to keep our resort in perfect working order. That means making sure that our Universe is show ready and safe for our guests!"
+                        image="/content/dam/universaldestinationsandexperiences/careers/technical-services.jpg"
+                        imageAlt="Technician in blue hard hat"
+                        primaryCtaLabel="Explore Open Roles"
+                        primaryCtaLink="/content/universaldestinationsandexperiences/us/en/careers/technical-services"
+                        primaryCtaOpenInNewTab="{Boolean}false"/>
+
+                    <!-- 4. Department Spotlight (Culinary) -->
+                    <spotlight_culinary
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="universaldestinationsandexperiences/components/department-spotlight"
+                        layout="image-right"
+                        theme="theme-soft-blue"
+                        ctaStyle="link"
+                        title="Culinary"
+                        description="Join our Culinary family and learn from our very own masters of cuisine!"
+                        image="/content/dam/universaldestinationsandexperiences/careers/culinary-chef.jpg"
+                        imageAlt="Chef preparing pizza"
+                        primaryCtaLabel="Explore Open Roles"
+                        primaryCtaLink="/content/universaldestinationsandexperiences/us/en/careers/culinary"
+                        primaryCtaOpenInNewTab="{Boolean}false"/>
+
+                    <!-- 5. Image Carousel Gallery -->
+                    <gallery_carousel
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="universaldestinationsandexperiences/components/image-carousel"
+                        autoplay="{Boolean}true"
+                        delay="{Long}5000">
+                        <slides jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                image="/content/dam/universaldestinationsandexperiences/gallery/innovators-summit.jpg"
+                                imageAlt="Students walking through Inspiring Future Innovators Summit"
+                                caption="Inspiring Future Innovators Summit"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                image="/content/dam/universaldestinationsandexperiences/gallery/epic-universe-portals.jpg"
+                                imageAlt="Universal Epic Universe Portals"
+                                caption="Universal Epic Universe"/>
+                            <item2
+                                jcr:primaryType="nt:unstructured"
+                                image="/content/dam/universaldestinationsandexperiences/gallery/holiday-celebrations.jpg"
+                                imageAlt="Universal Holiday Celebrations"
+                                caption="Universal Holiday Celebrations"/>
+                        </slides>
+                    </gallery_carousel>
+
+                </container>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

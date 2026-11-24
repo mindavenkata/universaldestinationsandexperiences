@@ -1,0 +1,110 @@
+<!--/*
+ * Universal Destinations & Experiences - Universal Header Component
+ */-->
+<sly data-sly-use.model="com.universaldestinationsandexperiences.core.models.UniversalHeaderModel"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+
+<sly data-sly-call="${clientlib.css @ categories='universaldestinationsandexperiences.components.header'}"/>
+<sly data-sly-call="${clientlib.js @ categories='universaldestinationsandexperiences.components.header'}"/>
+
+<header class="cmp-universal-header" 
+        data-cmp-is="universalHeader"
+        style="background-color: ${model.backgroundColor @ context='styleToken'};">
+    <div class="cmp-universal-header__container">
+        
+        <!-- Left: Universal Destinations Logo + Corporate Communications Title -->
+        <div class="cmp-universal-header__brand">
+            <a href="${model.homeLink @ extension='html'}" class="cmp-universal-header__brand-link" aria-label="${'Universal Destinations & Experiences Home' @ i18n}">
+                <!-- Universal Logo SVG or Custom Image -->
+                <div class="cmp-universal-header__logo-wrap">
+                    <img data-sly-test="${model.logoImage}" 
+                         src="${model.logoImage}" 
+                         alt="Universal Destinations &amp; Experiences" 
+                         class="cmp-universal-header__logo-img"/>
+                    
+                    <svg data-sly-test="${!model.logoImage}" class="cmp-universal-header__logo-svg" viewBox="0 0 170 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <!-- Stylized Universal Globe + Wordmark -->
+                        <circle cx="25" cy="25" r="18" stroke="#ffffff" stroke-width="2"/>
+                        <ellipse cx="25" cy="25" rx="18" ry="7" stroke="#ffffff" stroke-width="1.5"/>
+                        <line x1="25" y1="7" x2="25" y2="43" stroke="#ffffff" stroke-width="1.5"/>
+                        <path d="M10 20 Q 25 10 40 20" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+                        <path d="M10 30 Q 25 40 40 30" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+                        <text x="50" y="24" fill="#ffffff" font-size="16" font-weight="900" font-family="Arial, sans-serif" letter-spacing="1">UNIVERSAL</text>
+                        <text x="50" y="34" fill="#ffffff" font-size="6.5" font-weight="700" font-family="Arial, sans-serif" letter-spacing="0.5">DESTINATIONS &amp; EXPERIENCES</text>
+                    </svg>
+                </div>
+
+                <!-- Sub-brand 2-line title -->
+                <div class="cmp-universal-header__subbrand">
+                    <span class="cmp-universal-header__subbrand-title">${model.brandTitle}</span>
+                    <span class="cmp-universal-header__subbrand-subtitle">${model.brandSubtitle}</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Mobile Navigation Toggle Button -->
+        <button type="button" 
+                class="cmp-universal-header__toggle" 
+                data-cmp-hook-header="toggle"
+                aria-expanded="false" 
+                aria-controls="universal-header-nav" 
+                aria-label="${'Toggle navigation menu' @ i18n}">
+            <span class="cmp-universal-header__toggle-bar"></span>
+            <span class="cmp-universal-header__toggle-bar"></span>
+            <span class="cmp-universal-header__toggle-bar"></span>
+        </button>
+
+        <!-- Right: Main Navigation Bar with Dropdowns -->
+        <nav id="universal-header-nav" class="cmp-universal-header__nav" aria-label="${'Main Navigation' @ i18n}">
+            <ul class="cmp-universal-header__menu" data-sly-list.item="${model.navItems}">
+                <li class="cmp-universal-header__item ${item.hasDropdown ? 'cmp-universal-header__item--has-dropdown' : ''}"
+                    data-cmp-hook-header="item">
+                    
+                    <!-- Direct Link or Dropdown Trigger Button -->
+                    <sly data-sly-test="${item.hasDropdown}">
+                        <button type="button" 
+                                class="cmp-universal-header__link cmp-universal-header__link--dropdown"
+                                data-cmp-hook-header="dropdownToggle"
+                                aria-expanded="false"
+                                aria-haspopup="true">
+                            <span class="cmp-universal-header__link-text">${item.title}</span>
+                            <svg class="cmp-universal-header__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+
+                        <!-- Dropdown Panel -->
+                        <div class="cmp-universal-header__dropdown" data-cmp-hook-header="dropdown">
+                            <ul class="cmp-universal-header__sublist" data-sly-list.sub="${item.subItems}">
+                                <li class="cmp-universal-header__subitem">
+                                    <a href="${sub.formattedUrl}" 
+                                       class="cmp-universal-header__sublink"
+                                       target="${sub.target}"
+                                       rel="${sub.openInNewTab ? 'noopener noreferrer' : ''}">
+                                        <svg data-sly-test="${sub.hasIcon}" class="cmp-universal-header__subicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                                        </svg>
+                                        <span class="cmp-universal-header__subtext">${sub.title}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </sly>
+
+                    <sly data-sly-test="${!item.hasDropdown}">
+                        <a href="${item.formattedUrl}" 
+                           class="cmp-universal-header__link"
+                           target="${item.target}"
+                           rel="${item.openInNewTab ? 'noopener noreferrer' : ''}">
+                            <span class="cmp-universal-header__link-text">${item.title}</span>
+                        </a>
+                    </sly>
+
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</header>

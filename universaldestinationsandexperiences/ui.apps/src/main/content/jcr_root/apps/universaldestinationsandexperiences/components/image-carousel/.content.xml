@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Component"
+    jcr:title="Image Carousel"
+    jcr:description="Universal Destinations &amp; Experiences rounded image carousel with navigation chevrons and bottom-left pagination dots"
+    componentGroup="Universal Destinations and Experiences - Content"
+    generatedBy="aem-dev-agent"/>

@@ -1,0 +1,74 @@
+<!--/*
+ * Universal Destinations & Experiences - News Card Grid Component
+ */-->
+<sly data-sly-use.model="com.universaldestinationsandexperiences.core.models.NewsCardGridModel"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+
+<sly data-sly-call="${clientlib.css @ categories='universaldestinationsandexperiences.components.news-card-grid'}"/>
+
+<sly data-sly-test="${model.hasContent}">
+    <section class="cmp-news-card-grid" data-cmp-is="newsCardGrid">
+        <div class="cmp-news-card-grid__container">
+            
+            <!-- Section Header -->
+            <div class="cmp-news-card-grid__header" data-sly-test="${model.title}">
+                <h2 class="cmp-news-card-grid__section-title">${model.title}</h2>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="cmp-news-card-grid__cards">
+                <sly data-sly-list.card="${model.cards}">
+                    <article class="cmp-news-card-grid__card">
+                        
+                        <!-- Card Image linking to target page -->
+                        <div class="cmp-news-card-grid__image-wrap" data-sly-test="${card.image}">
+                            <a href="${card.linkUrl @ extension='html'}" 
+                               class="cmp-news-card-grid__image-link"
+                               target="${card.target}"
+                               rel="${card.openInNewTab ? 'noopener noreferrer' : ''}"
+                               tabindex="-1"
+                               aria-hidden="true">
+                                <img src="${card.image}" 
+                                     alt="${card.imageAlt @ context='attribute'}" 
+                                     class="cmp-news-card-grid__image"
+                                     loading="lazy"/>
+                            </a>
+                        </div>
+
+                        <!-- Card Content Body -->
+                        <div class="cmp-news-card-grid__body">
+                            <h3 class="cmp-news-card-grid__title">
+                                <a href="${card.linkUrl @ extension='html'}" 
+                                   class="cmp-news-card-grid__title-link"
+                                   target="${card.target}"
+                                   rel="${card.openInNewTab ? 'noopener noreferrer' : ''}">
+                                    ${card.cardTitle}
+                                </a>
+                            </h3>
+
+                            <p class="cmp-news-card-grid__description" data-sly-test="${card.description}">
+                                ${card.description}
+                            </p>
+
+                            <!-- Read More Redirection Link -->
+                            <div class="cmp-news-card-grid__action">
+                                <a href="${card.linkUrl @ extension='html'}" 
+                                   class="cmp-news-card-grid__read-more"
+                                   target="${card.target}"
+                                   rel="${card.openInNewTab ? 'noopener noreferrer' : ''}">
+                                    ${card.linkText}
+                                </a>
+                            </div>
+                        </div>
+
+                    </article>
+                </sly>
+            </div>
+
+        </div>
+    </section>
+</sly>
+
+<!-- Placeholder in Edit Mode -->
+<sly data-sly-call="${templates.placeholder @ isEmpty=!model.hasContent, classAppend='cmp-news-card-grid'}"></sly>

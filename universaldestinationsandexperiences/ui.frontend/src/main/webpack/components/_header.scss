@@ -1,0 +1,357 @@
+/*
+ * Universal Destinations & Experiences - Universal Header SCSS
+ */
+.cmp-universal-header {
+    position: relative;
+    width: 100%;
+    background-color: #0066d6;
+    color: #ffffff;
+    z-index: 500;
+    font-family: "Avenir Next Bold", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    box-sizing: border-box;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    &__container {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 36px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
+
+    &__brand-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #ffffff;
+        height: 100%;
+        flex-shrink: 0;
+    }
+
+    &__logo-wrap {
+        display: flex;
+        align-items: center;
+    }
+
+    &__logo-img,
+    &__logo-svg {
+        height: 34px;
+        width: auto;
+        display: block;
+    }
+
+    &__subbrand {
+        display: flex;
+        flex-direction: column;
+        margin-left: 12px;
+        padding-left: 12px;
+        border-left: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    &__subbrand-title,
+    &__subbrand-subtitle {
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.15;
+        color: #ffffff;
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    &__menu {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        list-style: none;
+        margin: 0;
+        padding: 0 4px 0 0;
+        height: 100%;
+        flex-wrap: nowrap;
+    }
+
+    &__item {
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        &--has-dropdown {
+            // Invisible hover bridge so mouse moving from link to dropdown never drops hover
+            &::after {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: 20px;
+                display: block;
+                z-index: 999;
+            }
+
+            &:hover,
+            &.cmp-universal-header__item--open {
+                .cmp-universal-header__dropdown {
+                    display: block;
+                }
+                .cmp-universal-header__chevron {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        // Align dropdowns to the right for the last nav items so they never go off-screen
+        &:last-child,
+        &:nth-last-child(1),
+        &:nth-last-child(2),
+        &:nth-last-child(3) {
+            .cmp-universal-header__dropdown {
+                left: auto !important;
+                right: 0 !important;
+            }
+        }
+    }
+
+    &__link {
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.035em;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        height: 64px;
+        padding: 0 11px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+        white-space: nowrap;
+        transition: opacity 0.2s ease, background-color 0.2s ease;
+
+        &:hover,
+        &:focus {
+            opacity: 0.9;
+            outline: none;
+        }
+
+        &:focus-visible {
+            outline: 2px solid #ffffff;
+            outline-offset: -2px;
+        }
+    }
+
+    &__chevron {
+        width: 12px;
+        height: 12px;
+        stroke: currentColor;
+        stroke-width: 2.5;
+        transition: transform 0.25s ease;
+    }
+
+    &__dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 360px !important;
+        background-color: #0066d6 !important;
+        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.32) !important;
+        border-radius: 0 0 6px 6px !important;
+        z-index: 1000;
+        padding: 18px 0 !important;
+        display: none;
+    }
+
+    &__sublist {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__subitem {
+        margin: 0;
+        padding: 0;
+    }
+
+    &__sublink {
+        display: flex !important;
+        align-items: center !important;
+        padding: 14px 36px !important; // Generous padding for clean spacing
+        color: #ffffff !important;
+        font-size: 13px !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.035em !important;
+        line-height: 1.4 !important;
+        text-decoration: none !important;
+        white-space: nowrap !important;
+        transition: background-color 0.15s ease, padding-left 0.15s ease;
+
+        &:hover,
+        &:focus {
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            padding-left: 42px !important;
+            outline: none;
+        }
+
+        &:focus-visible {
+            background-color: rgba(255, 255, 255, 0.22) !important;
+            outline: none;
+        }
+    }
+
+    &__subicon {
+        width: 16px !important;
+        height: 16px !important;
+        stroke: #ffffff !important;
+        stroke-width: 2 !important;
+        margin-right: 12px !important;
+        flex-shrink: 0 !important;
+        display: inline-block !important;
+    }
+
+    &__subtext {
+        display: inline-block !important;
+    }
+
+    &__toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 38px;
+        height: 28px;
+        z-index: 600;
+    }
+
+    &__toggle-bar {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #ffffff;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    @media (max-width: 1200px) {
+        &__container {
+            padding: 0 20px;
+        }
+
+        &__link {
+            padding: 0 8px;
+            font-size: 12px;
+            gap: 4px;
+        }
+
+        &__subbrand {
+            margin-left: 8px;
+            padding-left: 8px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        &__container {
+            padding: 0 20px;
+            height: 64px;
+        }
+
+        &__toggle {
+            display: flex;
+        }
+
+        &__nav {
+            position: fixed;
+            top: 64px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 64px);
+            background-color: #0066d6;
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 24px 32px;
+            overflow-y: auto;
+        }
+
+        &.cmp-universal-header--open &__nav {
+            display: flex;
+        }
+
+        &__menu {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
+            width: 100%;
+            height: auto;
+            padding: 0;
+        }
+
+        &__item {
+            width: 100%;
+            height: auto;
+            flex-direction: column;
+            align-items: flex-start;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+            &:last-child,
+            &:nth-last-child(1),
+            &:nth-last-child(2),
+            &:nth-last-child(3) {
+                .cmp-universal-header__dropdown {
+                    left: 0 !important;
+                    right: auto !important;
+                }
+            }
+        }
+
+        &__link {
+            width: 100%;
+            height: auto;
+            justify-content: space-between;
+            padding: 16px 0;
+            font-size: 15px;
+        }
+
+        &__dropdown {
+            position: static;
+            box-shadow: none !important;
+            padding: 0 0 12px 16px !important;
+            width: 100%;
+            min-width: 100% !important;
+            background-color: rgba(0, 0, 0, 0.08) !important;
+            border-radius: 4px !important;
+        }
+
+        &__sublink {
+            padding: 12px 16px !important;
+            font-size: 14px !important;
+            white-space: normal !important;
+
+            &:hover,
+            &:focus {
+                padding-left: 16px !important;
+            }
+        }
+    }
+}

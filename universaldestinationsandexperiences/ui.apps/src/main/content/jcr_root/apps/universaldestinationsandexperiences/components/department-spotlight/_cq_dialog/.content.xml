@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Department Spotlight"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <!-- Tab 1: Layout & Theme Variations -->
+                    <layoutTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Layout &amp; Styling"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <layout
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Layout Variation"
+                                                fieldDescription="Select image and content alignment"
+                                                name="./layout">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <imageLeft
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Image Left, Content Right (e.g. Technical Services)"
+                                                        value="image-left"
+                                                        selected="{Boolean}true"/>
+                                                    <imageRight
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Image Right, Content Left (e.g. Culinary)"
+                                                        value="image-right"/>
+                                                    <banner
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Full-Width Banner / Stacked Hero"
+                                                        value="banner"/>
+                                                </items>
+                                            </layout>
+                                            <theme
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Background Theme"
+                                                fieldDescription="Select background color for this department section"
+                                                name="./theme">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <white
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="White (#ffffff)"
+                                                        value="theme-white"
+                                                        selected="{Boolean}true"/>
+                                                    <softBlue
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Soft Sky Blue (#eaf2f9 - Culinary style)"
+                                                        value="theme-soft-blue"/>
+                                                    <lightGray
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Light Gray (#f8fafc)"
+                                                        value="theme-light-gray"/>
+                                                    <navy
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Universal Dark Navy (#0f2252)"
+                                                        value="theme-navy"/>
+                                                </items>
+                                            </theme>
+                                            <ctaStyle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Call to Action Style"
+                                                fieldDescription="Choose whether CTA displays as clean blue text link or solid button"
+                                                name="./ctaStyle">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <link
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Text Link (Explore Open Roles style)"
+                                                        value="link"
+                                                        selected="{Boolean}true"/>
+                                                    <button
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Pill Button"
+                                                        value="button"/>
+                                                </items>
+                                            </ctaStyle>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </layoutTab>
+
+                    <!-- Tab 2: Department Content -->
+                    <contentTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Department Content"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <eyebrow
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Eyebrow / Category Tag (Optional)"
+                                                fieldDescription="Small label above the headline"
+                                                name="./eyebrow"
+                                                emptyText="CAREER SPOTLIGHT"/>
+                                            <title
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Department Title"
+                                                fieldDescription="Main headline of the department (e.g. Technical Services, Culinary)"
+                                                name="./title"
+                                                required="{Boolean}true"
+                                                emptyText="Technical Services"/>
+                                            <description
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                fieldLabel="Department Overview / Description"
+                                                fieldDescription="Summary text explaining the department scope"
+                                                name="./description"
+                                                rows="4"
+                                                emptyText="Use your technical and mechanical skills to keep our resort in perfect working order..."/>
+                                            <badgeText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Image Overlay Badge (Optional)"
+                                                fieldDescription="Optional pill badge on the photo"
+                                                name="./badgeText"
+                                                emptyText="Universal Orlando Resort"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </contentTab>
+
+                    <!-- Tab 3: Department Image -->
+                    <imageTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Department Image"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <image
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldLabel="Department Image"
+                                                fieldDescription="Select image asset from DAM"
+                                                name="./image"
+                                                rootPath="/content/dam"/>
+                                            <imageAlt
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Image Alt Text"
+                                                fieldDescription="Alternative text for accessibility"
+                                                name="./imageAlt"
+                                                emptyText="Team member at work"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </imageTab>
+
+                    <!-- Tab 4: Call to Action Link / Button -->
+                    <actionsTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Call to Action"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <primaryCtaLabel
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="CTA Label"
+                                                fieldDescription="Link or button text (e.g. Explore Open Roles)"
+                                                name="./primaryCtaLabel"
+                                                emptyText="Explore Open Roles"/>
+                                            <primaryCtaLink
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldLabel="CTA Target Link"
+                                                fieldDescription="Target page path or external URL"
+                                                name="./primaryCtaLink"
+                                                rootPath="/content"/>
+                                            <primaryCtaOpenInNewTab
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                text="Open in new tab"
+                                                name="./primaryCtaOpenInNewTab"
+                                                value="true"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </actionsTab>
+
+                    <!-- Tab 5: Featured Roles Multifield (Optional) -->
+                    <rolesTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Role List (Optional)"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <roles
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldLabel="Featured Roles List"
+                                                fieldDescription="Optionally add specific roles or bullet highlights">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    name="./roles">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <roleTitle
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Role Title"
+                                                            fieldDescription="Job title (e.g. Ride &amp; Show Mechanics)"
+                                                            name="./roleTitle"
+                                                            required="{Boolean}true"/>
+                                                        <roleTag
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Role Tag / Badge"
+                                                            fieldDescription="Optional tag (e.g. High Demand)"
+                                                            name="./roleTag"/>
+                                                        <roleDescription
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                            fieldLabel="Brief Description"
+                                                            name="./roleDescription"/>
+                                                        <roleLink
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                            fieldLabel="Role Link"
+                                                            name="./roleLink"
+                                                            rootPath="/content"/>
+                                                        <openInNewTab
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                            text="Open in new tab"
+                                                            name="./openInNewTab"
+                                                            value="true"/>
+                                                    </items>
+                                                </field>
+                                            </roles>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </rolesTab>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,101 @@
+<!--/*
+ * Universal Destinations & Experiences - Image Carousel Component
+ */-->
+<sly data-sly-use.model="com.universaldestinationsandexperiences.core.models.ImageCarouselModel"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+
+<sly data-sly-call="${clientlib.css @ categories='universaldestinationsandexperiences.components.image-carousel'}"/>
+<sly data-sly-call="${clientlib.js @ categories='universaldestinationsandexperiences.components.image-carousel'}"/>
+
+<sly data-sly-test="${model.hasContent}">
+    <div class="cmp-image-carousel"
+         data-cmp-is="imageCarousel"
+         data-cmp-autoplay="${model.autoplay ? 'true' : 'false'}"
+         data-cmp-delay="${model.delay}">
+        
+        <div class="cmp-image-carousel__outer-container" style="max-width: ${model.maxWidth @ context='styleToken'};">
+            
+            <div class="cmp-image-carousel__stage">
+                <!-- Left Chevron Arrow -->
+                <button type="button" 
+                        class="cmp-image-carousel__nav cmp-image-carousel__nav--prev" 
+                        data-cmp-hook-carousel="previous" 
+                        aria-label="${'Previous image' @ i18n}">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+
+                <!-- Carousel Viewport & Frame -->
+                <div class="cmp-image-carousel__viewport">
+                    <div class="cmp-image-carousel__track" data-cmp-hook-carousel="track">
+                        <sly data-sly-list.item="${model.images}">
+                            <div class="cmp-image-carousel__slide ${itemList.first ? 'cmp-image-carousel__slide--active' : ''}"
+                                 data-cmp-hook-carousel="slide"
+                                 data-slide-index="${itemList.index}"
+                                 role="group"
+                                 aria-roledescription="slide"
+                                 aria-label="${'Slide {0} of {1}' @ i18n, format=[itemList.count, model.imageCount]}">
+                                
+                                <div class="cmp-image-carousel__image-frame">
+                                    <sly data-sly-test="${item.linkUrl}">
+                                        <a href="${item.formattedUrl}" 
+                                           class="cmp-image-carousel__image-link"
+                                           target="${item.target}"
+                                           rel="${item.openInNewTab ? 'noopener noreferrer' : ''}">
+                                            <img src="${item.image}" 
+                                                 alt="${item.imageAlt @ context='attribute'}" 
+                                                 class="cmp-image-carousel__image"
+                                                 loading="${itemList.first ? 'eager' : 'lazy'}"/>
+                                        </a>
+                                    </sly>
+                                    <sly data-sly-test="${!item.linkUrl}">
+                                        <img src="${item.image}" 
+                                             alt="${item.imageAlt @ context='attribute'}" 
+                                             class="cmp-image-carousel__image"
+                                             loading="${itemList.first ? 'eager' : 'lazy'}"/>
+                                    </sly>
+                                </div>
+
+                                <p class="cmp-image-carousel__caption" data-sly-test="${item.caption}">
+                                    ${item.caption}
+                                </p>
+
+                            </div>
+                        </sly>
+                    </div>
+                </div>
+
+                <!-- Right Chevron Arrow -->
+                <button type="button" 
+                        class="cmp-image-carousel__nav cmp-image-carousel__nav--next" 
+                        data-cmp-hook-carousel="next" 
+                        aria-label="${'Next image' @ i18n}">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Dots positioned at Bottom-Left as seen in mockup -->
+            <div class="cmp-image-carousel__pagination" role="tablist" aria-label="${'Choose an image to display' @ i18n}">
+                <sly data-sly-list.item="${model.images}">
+                    <button type="button" 
+                            role="tab"
+                            class="cmp-image-carousel__dot ${itemList.first ? 'cmp-image-carousel__dot--active' : ''}"
+                            data-cmp-hook-carousel="indicator"
+                            data-slide-target="${itemList.index}"
+                            aria-selected="${itemList.first ? 'true' : 'false'}"
+                            aria-label="${'Go to slide {0}' @ i18n, format=[itemList.count]}">
+                    </button>
+                </sly>
+            </div>
+
+        </div>
+
+    </div>
+</sly>
+
+<!-- Placeholder in Edit Mode -->
+<sly data-sly-call="${templates.placeholder @ isEmpty=!model.hasContent, classAppend='cmp-image-carousel'}"></sly>

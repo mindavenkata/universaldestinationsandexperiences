@@ -1,0 +1,99 @@
+<!--/*
+ * Universal Destinations & Experiences - Featured Carousel Component
+ */-->
+<sly data-sly-use.model="com.universaldestinationsandexperiences.core.models.FeaturedCarouselModel"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+
+<sly data-sly-call="${clientlib.css @ categories='universaldestinationsandexperiences.components.featured-carousel'}"/>
+<sly data-sly-call="${clientlib.js @ categories='universaldestinationsandexperiences.components.featured-carousel'}"/>
+
+<sly data-sly-test="${model.hasContent}">
+    <div class="cmp-featured-carousel"
+         data-cmp-is="featuredCarousel"
+         data-cmp-autoplay="${model.autoplay ? 'true' : 'false'}"
+         data-cmp-delay="${model.delay}"
+         style="background-color: ${model.backgroundColor @ context='styleToken'};">
+        
+        <div class="cmp-featured-carousel__container">
+            <!-- Left Navigation Button -->
+            <button type="button" 
+                    class="cmp-featured-carousel__nav cmp-featured-carousel__nav--prev" 
+                    data-cmp-hook-carousel="previous" 
+                    aria-label="${'Previous slide' @ i18n}">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+
+            <!-- Slide Track Viewport -->
+            <div class="cmp-featured-carousel__viewport">
+                <div class="cmp-featured-carousel__track" data-cmp-hook-carousel="track">
+                    <sly data-sly-list.slide="${model.slides}">
+                        <div class="cmp-featured-carousel__slide ${slideList.first ? 'cmp-featured-carousel__slide--active' : ''}"
+                             data-cmp-hook-carousel="slide"
+                             data-slide-index="${slideList.index}"
+                             role="group"
+                             aria-roledescription="slide"
+                             aria-label="${'Slide {0} of {1}' @ i18n, format=[slideList.count, model.slideCount]}">
+                            
+                            <div class="cmp-featured-carousel__content-grid">
+                                <!-- Left Column: Feature Image -->
+                                <div class="cmp-featured-carousel__image-col">
+                                    <div class="cmp-featured-carousel__image-frame">
+                                        <img src="${slide.image}" 
+                                             alt="${slide.imageAlt @ context='attribute'}" 
+                                             class="cmp-featured-carousel__image"
+                                             loading="${slideList.first ? 'eager' : 'lazy'}"/>
+                                    </div>
+                                </div>
+
+                                <!-- Right Column: Headline & Pill CTA -->
+                                <div class="cmp-featured-carousel__text-col">
+                                    <h2 class="cmp-featured-carousel__title">${slide.title}</h2>
+                                    <div class="cmp-featured-carousel__action-wrap" data-sly-test="${slide.ctaLink || slide.ctaText}">
+                                        <a href="${slide.ctaLink @ extension='html'}" 
+                                           class="cmp-featured-carousel__cta" 
+                                           target="${slide.target}"
+                                           rel="${slide.openInNewTab ? 'noopener noreferrer' : ''}">
+                                            ${slide.ctaText}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </sly>
+                </div>
+            </div>
+
+            <!-- Right Navigation Button -->
+            <button type="button" 
+                    class="cmp-featured-carousel__nav cmp-featured-carousel__nav--next" 
+                    data-cmp-hook-carousel="next" 
+                    aria-label="${'Next slide' @ i18n}">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Dot Indicators (Pagination) -->
+        <div class="cmp-featured-carousel__pagination" role="tablist" aria-label="${'Choose a slide to display' @ i18n}">
+            <sly data-sly-list.slide="${model.slides}">
+                <button type="button" 
+                        role="tab"
+                        class="cmp-featured-carousel__dot ${slideList.first ? 'cmp-featured-carousel__dot--active' : ''}"
+                        data-cmp-hook-carousel="indicator"
+                        data-slide-target="${slideList.index}"
+                        aria-selected="${slideList.first ? 'true' : 'false'}"
+                        aria-label="${'Go to slide {0}' @ i18n, format=[slideList.count]}">
+                </button>
+            </sly>
+        </div>
+
+    </div>
+</sly>
+
+<!-- Placeholder in Author Edit Mode -->
+<sly data-sly-call="${templates.placeholder @ isEmpty=!model.hasContent, classAppend='cmp-featured-carousel'}"></sly>

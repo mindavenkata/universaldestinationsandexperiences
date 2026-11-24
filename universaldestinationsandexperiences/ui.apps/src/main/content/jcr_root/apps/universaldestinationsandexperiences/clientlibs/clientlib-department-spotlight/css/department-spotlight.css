@@ -1,0 +1,375 @@
+/**
+ * Universal Destinations & Experiences - Department Spotlight Component Styles
+ * BEM naming: .cmp-department-spotlight
+ */
+
+.cmp-department-spotlight {
+    position: relative;
+    width: 100%;
+    padding: 60px 0;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.cmp-department-spotlight *,
+.cmp-department-spotlight *::before,
+.cmp-department-spotlight *::after {
+    box-sizing: inherit;
+}
+
+.cmp-department-spotlight__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.cmp-department-spotlight__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* ==========================================================================
+   LAYOUT VARIATIONS
+   ========================================================================== */
+
+/* Image Left (e.g. Technical Services) */
+.cmp-department-spotlight--image-left .cmp-department-spotlight__media-col {
+    order: 1;
+}
+.cmp-department-spotlight--image-left .cmp-department-spotlight__content-col {
+    order: 2;
+}
+
+/* Image Right (e.g. Culinary) */
+.cmp-department-spotlight--image-right .cmp-department-spotlight__media-col {
+    order: 2;
+}
+.cmp-department-spotlight--image-right .cmp-department-spotlight__content-col {
+    order: 1;
+}
+
+/* Banner / Stacked */
+.cmp-department-spotlight--banner .cmp-department-spotlight__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+.cmp-department-spotlight--banner .cmp-department-spotlight__media-col {
+    order: 1;
+    max-height: 440px;
+    overflow: hidden;
+}
+.cmp-department-spotlight--banner .cmp-department-spotlight__content-col {
+    order: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ==========================================================================
+   THEME VARIATIONS
+   ========================================================================== */
+
+/* Theme: White (#ffffff) - Technical Services screenshot */
+.cmp-department-spotlight--theme-white {
+    background-color: #ffffff;
+    color: #334155;
+}
+.cmp-department-spotlight--theme-white .cmp-department-spotlight__title {
+    color: #1e2530;
+}
+.cmp-department-spotlight--theme-white .cmp-department-spotlight__description {
+    color: #374151;
+}
+
+/* Theme: Soft Sky Blue (#eaf2f9) - Culinary screenshot */
+.cmp-department-spotlight--theme-soft-blue {
+    background-color: #eaf2f9;
+    color: #334155;
+}
+.cmp-department-spotlight--theme-soft-blue .cmp-department-spotlight__title {
+    color: #1e2530;
+}
+.cmp-department-spotlight--theme-soft-blue .cmp-department-spotlight__description {
+    color: #374151;
+}
+
+/* Theme: Light Gray */
+.cmp-department-spotlight--theme-light-gray {
+    background-color: #f8fafc;
+    color: #334155;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+.cmp-department-spotlight--theme-light-gray .cmp-department-spotlight__title {
+    color: #1e2530;
+}
+
+/* Theme: Universal Dark Navy */
+.cmp-department-spotlight--theme-navy {
+    background-color: #0f2252;
+    color: #cbd5e1;
+}
+.cmp-department-spotlight--theme-navy .cmp-department-spotlight__title {
+    color: #ffffff;
+}
+.cmp-department-spotlight--theme-navy .cmp-department-spotlight__description {
+    color: #e2e8f0;
+}
+.cmp-department-spotlight--theme-navy .cmp-department-spotlight__cta-link {
+    color: #38bdf8;
+}
+.cmp-department-spotlight--theme-navy .cmp-department-spotlight__cta-link:hover {
+    color: #7dd3fc;
+}
+
+/* ==========================================================================
+   MEDIA / IMAGE
+   ========================================================================== */
+
+.cmp-department-spotlight__media-wrapper {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.cmp-department-spotlight__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.cmp-department-spotlight__placeholder-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 10;
+    background-color: #e2e8f0;
+    border: 2px dashed #94a3b8;
+    border-radius: 6px;
+    color: #475569;
+}
+
+.cmp-department-spotlight__placeholder-inner {
+    text-align: center;
+    padding: 24px;
+}
+
+.cmp-department-spotlight__placeholder-icon {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.cmp-department-spotlight__placeholder-text {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cmp-department-spotlight__badge {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: rgba(15, 34, 82, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 9999px;
+}
+
+/* ==========================================================================
+   CONTENT
+   ========================================================================== */
+
+.cmp-department-spotlight__content-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.cmp-department-spotlight__eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #0066d6;
+    margin-bottom: 8px;
+}
+
+.cmp-department-spotlight__title {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0 0 16px 0;
+    font-family: inherit;
+    letter-spacing: -0.3px;
+}
+
+.cmp-department-spotlight__description {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+}
+
+.cmp-department-spotlight__description p {
+    margin: 0 0 10px 0;
+}
+
+.cmp-department-spotlight__description p:last-child {
+    margin-bottom: 0;
+}
+
+/* Roles List (Optional) */
+.cmp-department-spotlight__roles-section {
+    margin-bottom: 20px;
+}
+
+.cmp-department-spotlight__roles-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cmp-department-spotlight__role-item {
+    border-radius: 6px;
+    padding: 10px 14px;
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.cmp-department-spotlight__role-link,
+.cmp-department-spotlight__role-static {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.cmp-department-spotlight__role-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: inherit;
+}
+
+.cmp-department-spotlight__role-tag {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.cmp-department-spotlight__role-arrow {
+    margin-left: auto;
+    font-size: 14px;
+    color: #0066d6;
+}
+
+.cmp-department-spotlight__role-description {
+    font-size: 12px;
+    margin: 4px 0 0 0;
+    opacity: 0.8;
+}
+
+/* ==========================================================================
+   CALL TO ACTION (Matches Live Screenshots)
+   ========================================================================== */
+
+.cmp-department-spotlight__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin-top: 4px;
+}
+
+/* Clean text link style matching "Explore Open Roles" */
+.cmp-department-spotlight__cta-link {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0066d6;
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.cmp-department-spotlight__cta-link:hover {
+    text-decoration: underline;
+    color: #004bb5;
+}
+
+/* Button style option */
+.cmp-department-spotlight__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.cmp-department-spotlight__btn--primary {
+    background-color: #0066d6;
+    color: #ffffff;
+    border: 2px solid #0066d6;
+}
+
+.cmp-department-spotlight__btn--primary:hover {
+    background-color: #004bb5;
+    border-color: #004bb5;
+}
+
+.cmp-department-spotlight__btn--secondary {
+    background-color: transparent;
+    color: #0066d6;
+    border: 2px solid #0066d6;
+}
+
+.cmp-department-spotlight__btn--secondary:hover {
+    background-color: #f0f7ff;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .cmp-department-spotlight {
+        padding: 40px 0;
+    }
+
+    .cmp-department-spotlight__grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    /* On mobile, media always on top */
+    .cmp-department-spotlight--image-left .cmp-department-spotlight__media-col,
+    .cmp-department-spotlight--image-right .cmp-department-spotlight__media-col {
+        order: 1;
+    }
+
+    .cmp-department-spotlight--image-left .cmp-department-spotlight__content-col,
+    .cmp-department-spotlight--image-right .cmp-department-spotlight__content-col {
+        order: 2;
+    }
+
+    .cmp-department-spotlight__title {
+        font-size: 24px;
+    }
+}

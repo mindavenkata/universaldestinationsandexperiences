@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Universal Footer"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <!-- Tab 1: General & Copyright -->
+                    <generalTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="General &amp; Copyright"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <copyrightText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Copyright Text"
+                                                fieldDescription="Bottom copyright notice"
+                                                name="./copyrightText"
+                                                emptyText="©2026 Universal Studios. All rights reserved."/>
+                                            <showBackToTop
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                text="Show 'Scroll to Top' Button"
+                                                name="./showBackToTop"
+                                                value="true"
+                                                uncheckedValue="false"
+                                                checked="{Boolean}true"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </generalTab>
+
+                    <!-- Tab 2: Social Links -->
+                    <socialTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Social Channels"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <socialLinks
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldLabel="Social Channel Links"
+                                                fieldDescription="Configure social links shown on the top-right of the footer">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    name="./socialLinks">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <platform
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                            fieldLabel="Platform Icon"
+                                                            name="./platform">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <youtube jcr:primaryType="nt:unstructured" text="YouTube" value="youtube"/>
+                                                                <linkedin jcr:primaryType="nt:unstructured" text="LinkedIn" value="linkedin"/>
+                                                                <facebook jcr:primaryType="nt:unstructured" text="Facebook" value="facebook"/>
+                                                                <instagram jcr:primaryType="nt:unstructured" text="Instagram" value="instagram"/>
+                                                                <x jcr:primaryType="nt:unstructured" text="X (Twitter)" value="x"/>
+                                                            </items>
+                                                        </platform>
+                                                        <label
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Label Text"
+                                                            fieldDescription="e.g. Find us on Youtube"
+                                                            name="./label"
+                                                            emptyText="Find us on Youtube"/>
+                                                        <linkUrl
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Channel URL"
+                                                            name="./linkUrl"
+                                                            emptyText="https://www.youtube.com/..."/>
+                                                        <openInNewTab
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                            text="Open in new window"
+                                                            name="./openInNewTab"
+                                                            value="true"
+                                                            uncheckedValue="false"
+                                                            checked="{Boolean}true"/>
+                                                    </items>
+                                                </field>
+                                            </socialLinks>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </socialTab>
+
+                    <!-- Tab 3: Legal Policy Links -->
+                    <legalTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Legal &amp; Policy Links"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <legalLinks
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldLabel="Legal / Policy Links"
+                                                fieldDescription="List of pipe-separated links (e.g. Privacy Policy, Terms of Service)">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    name="./legalLinks">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <linkText
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Link Text"
+                                                            name="./linkText"
+                                                            required="{Boolean}true"
+                                                            emptyText="Privacy Policy"/>
+                                                        <linkUrl
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                            fieldLabel="Destination Link / Page Path"
+                                                            name="./linkUrl"
+                                                            rootPath="/content"/>
+                                                        <openInNewTab
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                            text="Open in new window"
+                                                            name="./openInNewTab"
+                                                            value="true"
+                                                            uncheckedValue="false"/>
+                                                    </items>
+                                                </field>
+                                            </legalLinks>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </legalTab>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

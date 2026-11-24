@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Component"
+    jcr:title="Universal Footer"
+    jcr:description="Universal Destinations &amp; Experiences authorable footer with social channels, copyright, legal policy links, and back-to-top button"
+    componentGroup="Universal Destinations and Experiences - Content"
+    generatedBy="aem-dev-agent"/>

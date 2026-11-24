@@ -1,0 +1,226 @@
+/*
+ * Universal Destinations & Experiences - Featured Carousel Styles
+ */
+.cmp-featured-carousel {
+    position: relative;
+    width: 100%;
+    background-color: #152e75;
+    color: #ffffff;
+    overflow: hidden;
+    padding: 56px 0 36px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.cmp-featured-carousel *,
+.cmp-featured-carousel *::before,
+.cmp-featured-carousel *::after {
+    box-sizing: border-box;
+}
+
+.cmp-featured-carousel__container {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.cmp-featured-carousel__viewport {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.cmp-featured-carousel__track {
+    display: flex;
+    width: 100%;
+}
+
+.cmp-featured-carousel__slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.cmp-featured-carousel__slide--active {
+    display: block;
+    opacity: 1;
+}
+
+.cmp-featured-carousel__content-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 56px;
+    align-items: center;
+}
+
+.cmp-featured-carousel__image-col {
+    width: 100%;
+}
+
+.cmp-featured-carousel__image-frame {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    aspect-ratio: 16 / 9;
+    background-color: #0b1a45;
+}
+
+.cmp-featured-carousel__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cmp-featured-carousel__text-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.cmp-featured-carousel__title {
+    font-size: clamp(24px, 3.2vw, 42px);
+    line-height: 1.25;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 32px 0;
+    letter-spacing: -0.015em;
+    word-break: break-word;
+}
+
+.cmp-featured-carousel__action-wrap {
+    display: inline-block;
+}
+
+.cmp-featured-carousel__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 36px;
+    border-radius: 9999px;
+    background-color: #ffffff;
+    color: #152e75;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 2px solid #ffffff;
+    transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.cmp-featured-carousel__cta:hover,
+.cmp-featured-carousel__cta:focus {
+    background-color: #e8efff;
+    color: #0d1e52;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+    outline: none;
+}
+
+.cmp-featured-carousel__nav {
+    background: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0.85;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+
+.cmp-featured-carousel__nav:hover,
+.cmp-featured-carousel__nav:focus {
+    opacity: 1;
+    transform: scale(1.15);
+    outline: none;
+}
+
+.cmp-featured-carousel__nav svg {
+    width: 34px;
+    height: 34px;
+    stroke: currentColor;
+}
+
+.cmp-featured-carousel__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 40px;
+    padding: 0 16px;
+}
+
+.cmp-featured-carousel__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.35);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cmp-featured-carousel__dot:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.cmp-featured-carousel__dot--active {
+    background-color: #ffffff;
+    transform: scale(1.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .cmp-featured-carousel {
+        padding: 40px 0 28px 0;
+    }
+
+    .cmp-featured-carousel__container {
+        padding: 0 16px;
+        gap: 12px;
+    }
+
+    .cmp-featured-carousel__content-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .cmp-featured-carousel__text-col {
+        align-items: center;
+        text-align: center;
+    }
+
+    .cmp-featured-carousel__title {
+        font-size: 26px;
+        margin-bottom: 24px;
+    }
+
+    .cmp-featured-carousel__nav {
+        width: 36px;
+        height: 36px;
+    }
+
+    .cmp-featured-carousel__nav svg {
+        width: 24px;
+        height: 24px;
+    }
+}
